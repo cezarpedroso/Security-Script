@@ -132,21 +132,9 @@ KB2345678    2021-12-15
 Basic Cybersecurity Check Completed
 ```
 
-## Customization
-
-### Linux:
-- **Firewall**: The script uses `ufw` (Uncomplicated Firewall) for checking the firewall status. If you're using a different firewall management tool (e.g., `firewalld` or `iptables`), you can modify the `check_firewall_status` function accordingly.
-- **Package Manager**: This script uses `apt-get` for managing packages (Ubuntu/Debian-based systems). If you use another distribution (e.g., **CentOS**, **Red Hat**), replace `apt-get` with `yum` or `dnf`.
-
-### Windows:
-- **Firewall Profile**: The script uses `Get-NetFirewallProfile` to check the firewall status. You can customize it to check for specific rules or configurations.
-- **Outdated Updates**: The script lists all installed updates, but you could filter to show only critical security updates or vulnerabilities.
-
-## License
-This repository and scripts are free to use under the **MIT License**.
-
-## Disclaimer
-These scripts provide **basic security checks** and should not be relied upon as the sole security solution for your system. Always follow best practices for system hardening, including regular software updates, strong access controls, and advanced security tools like intrusion detection systems (IDS) and antivirus software.
 
 ## Contributing
-Feel free to fork this repository, improve the scripts, and contribute back with any enhancements or new features. Please follow best practices and ensure the code is thoroughly tested.
+Feel free to fork this repository and improve the scripts.
+
+## Author
+Cezar Pedroso
