@@ -36,41 +36,95 @@ This repository contains two scripts designed for basic cybersecurity checks. On
 
 ## Usage
 
-### Linux Script
+### **Windows (Using `WindowsExe.bat`)**
 
-1. **Save the script**:
-   - Open your terminal and create a new script file:
+1. **Download the scripts**:
+   - First, download both the **`WindowsExe.bat`** and **`basic_cybersecurity_check.ps1`** scripts to your local machine.
+
+2. **Run the `WindowsExe.bat` file**:
+   - Right-click on **`WindowsExe.bat`** and select **"Run as administrator"** to ensure you have sufficient permissions to change the execution policy.
+
+   The `WindowsExe.bat` file will automatically:
+   - Set the PowerShell execution policy to `RemoteSigned` (if not already set).
+   - Run the **`basic_cybersecurity_check.ps1`** PowerShell script to perform basic security checks on your system.
+
+3. **Result**: The script will output the status of:
+   - Open Ports
+   - Users with Administrator Privileges
+   - Sensitive System Files
+   - Firewall Status
+   - Outdated Windows Updates
+
+---
+
+### **Linux (Using `LinuxExe.bat`)**
+
+1. **Download the scripts**:
+   - First, download both the **`LinuxExe.bat`** and **`basic_cybersecurity_check.sh`** scripts to your local machine.
+
+2. **Run the `LinuxExe.bat` file**:
+   - Open a terminal and navigate to the folder where the **`LinuxExe.bat`** file is located.
+   - Run the following command:
      ```bash
-     nano basic_cybersecurity_check.sh
+     bash LinuxExe.bat
      ```
-2. **Paste the code** into the file and save it (Ctrl + X, then Y to confirm).
-3. **Make the script executable**:
-   ```bash
-   chmod +x basic_cybersecurity_check.sh
-   ```
-4. **Run the script**:
-   ```bash
-   ./basic_cybersecurity_check.sh
-   ```
 
-### Windows Script
+   The **`LinuxExe.bat`** file will automatically:
+   - Make the **`basic_cybersecurity_check.sh`** script executable (if necessary).
+   - Run the **`basic_cybersecurity_check.sh`** script to perform basic security checks on your Linux system.
 
-1. **Save the script**:
-   - Open PowerShell ISE or any text editor (e.g., Notepad).
-   - Copy and paste the PowerShell script into a new file.
-   - Save the file with a `.ps1` extension, e.g., `basic_cybersecurity_check.ps1`.
-2. **Set Execution Policy** (if required):
-   - Open PowerShell as an Administrator and run:
-     ```powershell
-     Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-     ```
-3. **Run the script**:
-   - Open PowerShell with Administrator privileges.
-   - Navigate to the directory where the script is saved.
-   - Execute the script:
-     ```powershell
-     .\basic_cybersecurity_check.ps1
-     ```
+3. **Result**: The script will output the status of:
+   - Open Ports
+   - Users with Administrator Privileges
+   - Sensitive System Files
+   - Firewall Status
+   - Outdated System Updates
+
+---
+
+## **Script Overview**
+
+### **Windows** (`basic_cybersecurity_check.ps1`):
+- **Set Execution Policy**: `RemoteSigned` for the current user.
+- **Cybersecurity Checks**:
+  - Open Ports (`netstat`)
+  - Administrator Users (`Get-LocalGroupMember`)
+  - Sensitive Files (e.g., `System32`)
+  - Firewall Status (`Get-NetFirewallProfile`)
+  - Outdated Updates (`Get-WmiObject`)
+
+### **Linux** (`basic_cybersecurity_check.sh`):
+- **Cybersecurity Checks**:
+  - Open Ports (`netstat`)
+  - Administrator Users (`grep 'sudo'`)
+  - Sensitive Files (e.g., `/etc/passwd`, `/etc/shadow`)
+  - Firewall Status (`ufw status` or `iptables`)
+  - Outdated Updates (`apt list --upgradable`)
+
+---
+
+## **Important Notes**
+
+1. **Administrator Privileges**:
+   - For **Windows**, you must run the `WindowsExe.bat` file as an Administrator to change the execution policy.
+   - For **Linux**, ensure you have the necessary privileges (you may need `sudo` for some operations).
+   
+2. **Execution Policy (Windows Only)**:
+   - The **`WindowsExe.bat`** file will set the PowerShell execution policy to `RemoteSigned` if needed. This ensures that local scripts can run on your system without issues.
+
+3. **Script Compatibility**:
+   - The **`WindowsExe.bat`** runs the PowerShell script (`basic_cybersecurity_check.ps1`) on Windows.
+   - The **`LinuxExe.bat`** runs the shell script (`basic_cybersecurity_check.sh`) on Linux.
+
+---
+
+## **Conclusion**
+
+This tool helps automate basic cybersecurity checks on both Windows and Linux systems, ensuring that common vulnerabilities are identified and addressed quickly. Follow the appropriate steps for your operating system to run the script and secure your system.
+
+---
+
+Now, the README includes the step to **download both the `.bat` file and the script** (`basic_cybersecurity_check.ps1` or `basic_cybersecurity_check.sh`) before running them!
 
 ## Example Output
 
