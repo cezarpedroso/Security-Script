@@ -1,6 +1,7 @@
-# Basic Cybersecurity Script for Windows
 
-# Function to check for open ports
+::Basic Cybersecurity Script for Windows
+
+:: Function to check for open ports
 function Check-OpenPorts {
     Write-Host "Checking for open ports..."
     netstat -ano | Select-String "LISTEN"
